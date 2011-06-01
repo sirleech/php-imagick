@@ -17,25 +17,26 @@ $im->borderImage(new ImagickPixel("gray"), 1, 1);
 $draw = new ImagickDraw();
 
 //title
-$draw->setFontSize(26);
+$draw->setFontSize(36);
+$draw->settextkerning(-1);
 $draw->setFont("../fonts/HelveticaNeueLight.ttf");
 $draw->setTextAlignment(RIGHT);
 $draw->setFillColor('#a4610f');
-$draw->annotation(800, 50,$text );
+$draw->annotation(700, 50,$text );
 //small text
 $draw->setFillColor('#000000');
 $draw->setFontSize(15);
 $draw->setTextAlignment(LEFT);
 $draw->annotation(20, 70, "Hello World!");
 //
-$draw->setFontSize(12);
-$draw->annotation(20, 100, "Hello World!");
+$draw->setFontSize(13);
+$draw->settextkerning(1.1);
+$draw->annotation(20, 100, "Decile ranges are very much above average.");
 //
 $draw->setFont("../fonts/HelveticaNeueBold.ttf");
 $draw->setFontSize(15);
+$draw->settextkerning(0);
 $draw->annotation(20,300, "Precipitation");
-
-
 //circle
 $draw->setFillColor('green');    // Set up some colors to use for fill and outline
 $draw->setStrokeColor( new ImagickPixel( 'black' ) );
@@ -45,7 +46,6 @@ $draw->circle( 200, 200, 220, 220 );    // Draw the circle already
 
 //draw
 $im->drawImage($draw);
-
 
 /* Output the image*/
 header("Content-Type: image/png");
